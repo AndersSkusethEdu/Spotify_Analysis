@@ -10,7 +10,7 @@ load_dotenv(".env")
 CLIENT_ID = os.environ.get ('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 
-REDIRECT_URI = 'http://localhost:5000'
+REDIRECT_URI = 'http://localhost:5500'
 
 sp = spotipy.Spotify(
     auth_manager=SpotifyOAuth(
@@ -22,8 +22,8 @@ sp = spotipy.Spotify(
 )
 
 st.set_page_config(page_title='Spotify Song Analysis', page_icon=':musical_note:')
-st.title('Analysis for your Top songs')
-st.write('Discover insights about your Spotify listening habits.')
+st.title('Breakdown of your Top tracks! ')
+st.write('Discover insights about your favourite tracks!')
 
 top_tracks = sp.current_user_top_tracks(limit=10, time_range='short_term')
 track_ids = [track['id'] for track in top_tracks['items']]
